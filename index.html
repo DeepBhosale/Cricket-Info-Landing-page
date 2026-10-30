@@ -3,158 +3,104 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#f5f6f1">
-    <meta name="description" content="The latest player stats, team form and fixtures from international cricket.">
-    <title>Boundary — International Cricket, in focus</title>
+    <meta name="theme-color" content="#f5f2ec">
+    <meta name="description" content="Thoughtful everyday clothing, made to be worn on repeat.">
+    <title>Morrow — Everyday, considered</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="app.js" defer></script>
   </head>
   <body>
+    <div class="announcement">Free shipping on orders over $75 <span aria-hidden="true">·</span> Made for the everyday</div>
+
     <header class="site-header">
-      <a class="brand" href="#" aria-label="Boundary home">
-        <span class="brand-mark" aria-hidden="true">B</span>
-        <span>boundary<span class="brand-dot">.</span></span>
-      </a>
+      <a class="wordmark" href="#" aria-label="Morrow home">morrow<span>.</span></a>
       <nav class="main-nav" aria-label="Main navigation">
-        <a class="active" href="#teams">Teams</a>
-        <a href="#players">Players</a>
-        <a href="#fixtures">Fixtures</a>
+        <a href="#shop">Shop</a>
+        <a href="#story">Our approach</a>
       </nav>
-      <a class="header-link" href="#players">Explore stats <span aria-hidden="true">↗</span></a>
+      <div class="header-actions">
+        <label class="search-box">
+          <span class="sr-only">Search products</span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg>
+          <input id="search-input" type="search" placeholder="Search" autocomplete="off">
+        </label>
+        <button class="cart-trigger" id="open-cart" type="button" aria-label="Open shopping bag">
+          Bag <span id="cart-count" class="cart-count">0</span>
+        </button>
+      </div>
     </header>
 
     <main>
-      <section class="hero" id="teams">
+      <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="live-dot"></span> INTERNATIONAL CRICKET, IN FOCUS</div>
-          <h1>The game.<br><span>By the numbers.</span></h1>
-          <p>Follow the teams, players and moments shaping the world of cricket.</p>
-          <a class="text-link" href="#players">Explore player stats <span aria-hidden="true">↓</span></a>
+          <p class="eyebrow">The everyday collection · 01</p>
+          <h1 id="hero-title">A little more<br>room to <em>be.</em></h1>
+          <p>Easy layers, natural textures, and the pieces you reach for first.</p>
+          <a class="button button-dark" href="#shop">Explore the collection <span aria-hidden="true">↗</span></a>
         </div>
-        <div class="hero-art" aria-label="Abstract illustration of a cricket ball on a pitch" role="img">
-          <div class="art-sun"></div>
-          <div class="art-circle"></div>
-          <div class="art-pitch"></div>
-          <div class="art-ball"><span></span></div>
-          <div class="art-label">THE<br>WORLD<br>IS YOUR<br>GROUND<span>.</span></div>
-          <div class="art-caption">EST. EVERY OVER <span>—</span> 2025</div>
+        <div class="hero-image" role="img" aria-label="A relaxed neutral outfit in warm afternoon light">
+          <span class="hero-note">Worn your way, every day.</span>
         </div>
+        <div class="hero-index"><span>01</span><span class="index-line"></span><span>04</span></div>
       </section>
 
-      <section class="section team-section" aria-labelledby="team-heading">
+      <section class="shop-section" id="shop" aria-labelledby="shop-title">
         <div class="section-heading">
           <div>
-            <div class="eyebrow muted">THE INTERNATIONAL STAGE</div>
-            <h2 id="team-heading">Teams in focus<span class="brand-dot">.</span></h2>
+            <p class="eyebrow">Made for real life</p>
+            <h2 id="shop-title">The good rotation</h2>
           </div>
-          <label class="select-wrap" for="team-select">
-            <span class="sr-only">Choose a national team</span>
-            <select id="team-select" aria-label="Choose a national team"></select>
-            <span class="select-chevron" aria-hidden="true">⌄</span>
-          </label>
+          <p class="section-note">Fewer things. Better favorites.</p>
         </div>
-
-        <div class="team-overview">
-          <div class="team-identity">
-            <div class="team-flag" id="team-flag" aria-hidden="true"></div>
-            <div>
-              <p class="team-kicker">CURRENT TEAM</p>
-              <h3 id="team-name"></h3>
-              <p class="team-meta" id="team-meta"></p>
-            </div>
+        <div class="shop-toolbar">
+          <div class="category-filters" role="group" aria-label="Filter products">
+            <button class="filter-button active" type="button" data-category="All" aria-pressed="true">All pieces</button>
+            <button class="filter-button" type="button" data-category="Clothing" aria-pressed="false">Clothing</button>
+            <button class="filter-button" type="button" data-category="Accessories" aria-pressed="false">Accessories</button>
           </div>
-          <div class="team-metric">
-            <span class="metric-label">ICC RANK</span>
-            <strong id="team-rank"></strong>
-            <span class="metric-foot">ODI ranking</span>
-          </div>
-          <div class="team-metric">
-            <span class="metric-label">LAST 12 MATCHES</span>
-            <strong id="team-record"></strong>
-            <span class="metric-foot" id="team-win-rate"></span>
-          </div>
-          <div class="team-metric accent-metric">
-            <span class="metric-label">NEXT FIXTURE</span>
-            <strong id="next-opponent"></strong>
-            <span class="metric-foot" id="next-date"></span>
-          </div>
+          <p id="results-count" class="results-count" aria-live="polite"></p>
         </div>
-
-        <div class="form-row">
-          <span class="form-label">RECENT FORM</span>
-          <div class="form-chips" id="form-chips" aria-label="Recent match results"></div>
-          <span class="form-note">Last 5 ODIs</span>
-        </div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+        <p id="empty-results" class="empty-results" hidden>No pieces found. Try another search.</p>
       </section>
 
-      <section class="section player-section" id="players" aria-labelledby="players-heading">
-        <div class="section-heading player-heading">
-          <div>
-            <div class="eyebrow muted">THE NAMES BEHIND THE NUMBERS</div>
-            <h2 id="players-heading">Player spotlight<span class="brand-dot">.</span></h2>
-          </div>
-          <div class="player-tools">
-            <label class="search-wrap">
-              <span class="search-icon" aria-hidden="true">⌕</span>
-              <span class="sr-only">Search players</span>
-              <input id="player-search" type="search" placeholder="Search players" autocomplete="off">
-            </label>
-            <label class="select-wrap role-select-wrap" for="role-select">
-              <span class="sr-only">Filter by player role</span>
-              <select id="role-select">
-                <option value="all">All roles</option>
-                <option value="Batter">Batters</option>
-                <option value="Bowler">Bowlers</option>
-                <option value="All-rounder">All-rounders</option>
-                <option value="Wicketkeeper">Wicketkeepers</option>
-              </select>
-              <span class="select-chevron" aria-hidden="true">⌄</span>
-            </label>
-          </div>
+      <section class="story-section" id="story">
+        <div class="story-mark" aria-hidden="true">m.</div>
+        <div>
+          <p class="eyebrow">A slower kind of wardrobe</p>
+          <h2>Good clothes should<br>feel like <em>coming home.</em></h2>
+          <p>We make uncomplicated pieces with thoughtful details, designed to find their way into your everyday.</p>
         </div>
-
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th scope="col">PLAYER</th>
-                <th scope="col">ROLE</th>
-                <th scope="col">MATCHES</th>
-                <th scope="col">RUNS</th>
-                <th scope="col">AVERAGE</th>
-                <th scope="col">STRIKE RATE</th>
-                <th scope="col">WICKETS</th>
-              </tr>
-            </thead>
-            <tbody id="player-table"></tbody>
-          </table>
-          <div class="empty-state" id="empty-state" hidden>No players match your search. Try another name or role.</div>
-        </div>
-        <p class="table-footnote">Career ODI stats <span>·</span> Updated after the latest series</p>
-      </section>
-
-      <section class="section fixtures-section" id="fixtures" aria-labelledby="fixtures-heading">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow muted">SAVE THE DATE</div>
-            <h2 id="fixtures-heading">Coming up<span class="brand-dot">.</span></h2>
-          </div>
-          <span class="timezone-note">All times local</span>
-        </div>
-        <div class="fixture-grid" id="fixture-grid"></div>
+        <a class="text-link" href="#shop">Find your favorites <span aria-hidden="true">→</span></a>
       </section>
     </main>
 
     <footer class="site-footer">
-      <a class="brand footer-brand" href="#" aria-label="Boundary home">
-        <span class="brand-mark" aria-hidden="true">B</span>
-        <span>boundary<span class="brand-dot">.</span></span>
-      </a>
-      <p>For the love of the game. <span>Stats are illustrative and for demo purposes.</span></p>
-      <span class="footer-year">© BOUNDARY 2025</span>
+      <a class="wordmark" href="#" aria-label="Morrow home">morrow<span>.</span></a>
+      <p>Everyday, considered.</p>
+      <p>© 2025 Morrow Studio</p>
     </footer>
+
+    <div class="overlay" id="cart-overlay" hidden></div>
+    <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-title" aria-hidden="true">
+      <div class="cart-header">
+        <div>
+          <p class="eyebrow">Your good things</p>
+          <h2 id="cart-title">Shopping bag <span id="panel-cart-count">(0)</span></h2>
+        </div>
+        <button class="icon-button" id="close-cart" type="button" aria-label="Close shopping bag">×</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-summary">
+        <div class="summary-row"><span>Subtotal</span><strong id="cart-subtotal">$0.00</strong></div>
+        <div class="summary-row average-row"><span>Average item price</span><span id="average-price"></span></div>
+        <p class="shipping-note">Shipping and taxes calculated at checkout.</p>
+        <button class="button button-dark checkout-button" id="checkout-button" type="button" disabled>Continue to checkout <span aria-hidden="true">→</span></button>
+      </div>
+    </aside>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
   </body>
 </html>
