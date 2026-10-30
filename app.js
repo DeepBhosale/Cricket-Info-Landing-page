@@ -90,7 +90,7 @@ function formatPrice(amount) {
 }
 
 function calculateAverageItemPrice(subtotal, itemCount) {
-  return subtotal / itemCount;
+  return itemCount > 0 ? subtotal / itemCount : 0;
 }
 
 function getVisibleProducts() {
